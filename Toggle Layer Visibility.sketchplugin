@@ -4,18 +4,16 @@ var searchPattern = "boundingBox";
 var allArtboards = [[doc currentPage] artboards] 
 
 for (var i=0; i < [allArtboards length]; i++)
-	{ 
-		var artboard = [allArtboards objectAtIndex:i] 
-		var children = [artboard children] 
-
-		for (var j=0; j < [children length]; j++)
-			{ 
-				var child = [children objectAtIndex:j]; 
-				var name = [child name]; 
-				if(name.indexOf(searchPattern) == 0) 
-					{ 
-						print([child name]) 
-						[child setIsVisible:![child isVisible]] 
-					} 
-			} 
-	} 
+  { 
+    var artboard = [allArtboards objectAtIndex:i] 
+    var children = [artboard children] 
+    for (var j=0; j < [children length]; j++)
+      { 
+  	    var child = [children objectAtIndex:j]; 
+  	    var name = [child name]; 
+  	    if(name.indexOf(searchPattern) == 0) 
+  	      { 
+  		    [child setIsVisible:![child isVisible]] 
+  		  } 
+      } 
+  }
