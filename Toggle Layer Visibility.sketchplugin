@@ -3,11 +3,11 @@
 var searchPattern = "boundingBox"; 
 var allArtboards = [[doc currentPage] artboards] 
 
-for (var i=0; i < [allArtboards length]; i++)
+for (var i=0; i < [allArtboards count]; i++)
   { 
     var artboard = [allArtboards objectAtIndex:i] 
     var children = [artboard children] 
-    for (var j=0; j < [children length]; j++)
+    for (var j=0; j < [children count]; j++)
       { 
   	    var child = [children objectAtIndex:j]; 
   	    var name = [child name]; 
