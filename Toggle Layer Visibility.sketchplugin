@@ -1,19 +1,11 @@
 // toggle visibility of all layers named "boundingBox" (cmd l)
+#import 'lib.js'
 
 var searchPattern = "boundingBox"; 
-var allArtboards = [[doc currentPage] artboards] 
 
-for (var i=0; i < [allArtboards count]; i++)
-  { 
-    var artboard = [allArtboards objectAtIndex:i] 
-    var children = [artboard children] 
-    for (var j=0; j < [children count]; j++)
-      { 
-  	    var child = [children objectAtIndex:j]; 
-  	    var name = [child name]; 
-  	    if(name.indexOf(searchPattern) == 0) 
-  	      { 
-  		    [child setIsVisible:![child isVisible]] 
-  		  } 
-      } 
-  }
+var matchingLayers = getLayersWithName(searchPattern, [doc currentPage])
+
+for (var j = 0; j < matchingLayers.length; j++) { 
+   var child = matchingLayers[j]; 
+  [child setIsVisible:![child isVisible]] 
+}
