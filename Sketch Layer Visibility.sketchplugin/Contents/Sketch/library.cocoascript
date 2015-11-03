@@ -1,0 +1,122 @@
+//===============================================
+// sketch layer visibility  - library
+//===============================================
+
+var Library = {};
+(function(self) {
+
+	self.jsArray = jsArray;
+	self.findLayers = findLayers;
+    self.createAlert = createAlert;
+    self.createLabel = createLabel;
+
+
+	//===============================================
+
+
+	function jsArray(array) {
+		var length = [array count];
+        var jsArray = [];
+
+        while (length--) {
+            jsArray.push([array objectAtIndex: length]);
+        }
+        return jsArray;
+	}
+
+
+    function findLayers(name, exactMatch, type, rootLayer, subLayersOnly, layersToExclude) {
+
+    	//create predicate format
+    	var formatRules = ['(name != NULL)'];
+    	var arguments = [];
+
+    	//name
+    	if(name) {
+    		if(exactMatch) {
+    			formatRules.push('(name == %@)');
+    		}
+    		else {
+    			formatRules.push('(name like %@)');
+    		}
+    		arguments.push(name);
+    	}
+
+    	//type
+    	if(type) {
+    		formatRules.push('(className == %@)');
+    		arguments.push(type);
+    	}
+    	else {
+    		formatRules.push('(className == "MSLayerGroup" OR className == "MSShapeGroup" OR className == "MSArtboardGroup" OR className == "MSTextLayer")');
+    	}
+
+    	//layers to exclude
+    	if(layersToExclude) {
+    		formatRules.push('NOT (SELF IN %@)');
+    		arguments.push(layersToExclude);
+    	}
+
+    	//prepare format string
+    	var formatString = formatRules.join(' AND ');
+
+    	//create predicate
+        predicate = [NSPredicate predicateWithFormat: formatString argumentArray: arguments];
+
+        //get layers to filter
+        var layers;
+        if (subLayersOnly) {
+            layers = [[rootLayer layers] array];
+        } else {
+            layers = [rootLayer children];
+        }
+
+        //perform query
+        var queryResult = [layers filteredArrayUsingPredicate: predicate];
+
+        //return result as js array
+        return jsArray(queryResult);
+    }
+
+    
+    function createAlert(title, message, iconFileName) {
+
+        var alert = [COSAlertWindow new];
+        [alert setMessageText: title];
+        [alert setInformativeText: message];
+
+        if(iconFileName) {
+            
+            //get icon path
+            var scriptPath = [NSString stringWithString: context.scriptPath];
+            scriptPath = [scriptPath stringByDeletingLastPathComponent];
+            var iconPath = [scriptPath stringByAppendingPathComponent: iconFileName];
+            
+            //set icon
+            var icon = [[NSImage alloc] initByReferencingFile: iconPath];
+            [alert setIcon: icon];
+        }
+
+        return alert;
+    }
+    
+    
+    function createLabel(text, fontSize, bold, frame) {
+
+        var label = [[NSTextField alloc] initWithFrame:frame];
+        [label setStringValue:text];
+        if(bold) {
+            [label setFont:[NSFont boldSystemFontOfSize:fontSize]];
+        }
+        else {
+            [label setFont:[NSFont systemFontOfSize:fontSize]];
+        }
+        [label setBezeled:false];
+        [label setDrawsBackground:false];
+        [label setEditable:false];
+        [label setSelectable:false];
+
+        return label;
+    }
+
+})(Library);

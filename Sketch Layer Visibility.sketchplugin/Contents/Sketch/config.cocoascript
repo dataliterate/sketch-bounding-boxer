@@ -1,0 +1,9 @@
+//===============================================
+// sketch layer visibility  - config
+//===============================================
+
+var Config = {
+    
+    //define default layer name
+    defaultLayerName: "boundingBox*"   
+}

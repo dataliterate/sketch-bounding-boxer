@@ -1,0 +1,40 @@
+{
+    "name": "Sketch Layer Visiblity",
+    "description": "",
+    "identifier": "com.precious-forever.sketch.layervisibility",
+    "version": "1.0",
+    "commands": [{
+        "name": "Toggle",
+        "identifier": "toggleLayers",
+        "script": "plugin.cocoascript",
+        "handler": "toggleLayersHandler",
+        "shortcut": ""
+    }, {
+        "name": "Show",
+        "identifier": "showLayers",
+        "script": "plugin.cocoascript",
+        "handler": "showLayersHandler",
+        "shortcut": ""
+    }, {
+        "name": "Hide",
+        "identifier": "hideLayers",
+        "script": "plugin.cocoascript",
+        "handler": "hideLayersHandler",
+        "shortcut": ""
+    }, {
+        "name": "Settings",
+        "identifier": "settings",
+        "script": "plugin.cocoascript",
+        "handler": "settingsHandler",
+        "shortcut": ""
+    }],
+    "menu": {
+        "isRoot": false,
+        "items": [
+            "toggleLayers",
+            "showLayers",
+            "hideLayers",
+            "settings"
+        ],
+    }
+}
