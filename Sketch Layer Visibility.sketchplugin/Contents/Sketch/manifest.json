@@ -1,6 +1,9 @@
 {
     "name": "Sketch Layer Visibility",
-    "description": "",
+    "description": "Toggle visibility of defined layers in a Sketch document",
+    "author" : "precious design studio",
+    "authorEmail" : "info@precious-forever.com",
+    "homepage": "https://github.com/preciousforever/sketch-layer-visibility",
     "identifier": "com.precious-forever.sketch.layervisibility",
     "version": "1.0",
     "commands": [{
