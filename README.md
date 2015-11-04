@@ -1,5 +1,7 @@
 # Sketch Layer Visibility
 
+![sketch-toggle-layer-visibility](https://raw.githubusercontent.com/preciousforever/sketch-toggle-layer-visibility/master/toggle-layer-visibility.gif)
+
 ## Why Sketch Layer Visibility
 
 In our Sketch documents, we often use "boundingBox" layers in eg. icon layer groups to see (and use) their actual dimension and bounds. Since we don't want to see these "boundingBoxes" permanently, we created this little plugin to toggle their visibility with a keyboard shortcut (we use "cmd + l").
@@ -25,5 +27,3 @@ makes all matching layers hidden.
 
 #### Settings
 allows for the layer name to be changed as desired. ```*``` can be used as a wildcard meaning that ```box*``` will match ```box```, ```box1```, ```box-something```, etc. ```*``` can be used anywhere within the layer name string.
-
-![sketch-toggle-layer-visibility](https://raw.githubusercontent.com/preciousforever/sketch-toggle-layer-visibility/master/toggle-layer-visibility.gif)
