@@ -3,7 +3,6 @@
 //===============================================
 
 var Config = {
-    
-    //define default layer name
-    defaultLayerName: "boundingBox*"   
+  //define default layer name
+  defaultLayerName: "boundingBox*"
 }

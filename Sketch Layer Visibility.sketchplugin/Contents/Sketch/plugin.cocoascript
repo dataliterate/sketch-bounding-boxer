@@ -9,135 +9,110 @@
 //store global context reference
 var context;
 
-
 function toggleLayersHandler(_context) {
-	context = _context;
-	
-	//toggle
-	(isShowing()) ? hideLayers() : showLayers();
+  context = _context;
+  (isShowing()) ? hideLayers() : showLayers();
 }
 
 
 function showLayersHandler(_context) {
-	context = _context;
-	showLayers();
+  context = _context;
+  showLayers();
 }
 
 
 function hideLayersHandler(_context) {
-	context = _context;
-	hideLayers();
+  context = _context;
+  hideLayers();
 }
 
 
 function settingsHandler(_context) {
-	context = _context;
-	
-	//get user defaults
-	var defaults = [NSUserDefaults standardUserDefaults];
-	
-	//create alert
-	var alert = Library.createAlert("Settings", "", "");
-	
-	//create layer name view
-	var layerNameView = [[NSView alloc] initWithFrame: NSMakeRect(0, 0, 300, 22)];
-	
-	//create layer name title
-	var layerNameTitle = Library.createLabel('Layer name:', 12, false, NSMakeRect(0, 0, 80, 20));
-	[layerNameView addSubview: layerNameTitle];
+  context = _context;
 
-	//create layer name text field
-	var layerNameTextField = [[NSTextField alloc] initWithFrame:NSMakeRect(80, 0, 200, 22)];
-    [layerNameView addSubview: layerNameTextField];
-    
-    //set current layer name
-    if(![defaults objectForKey: "layerName"]) setDefaultLayerName(); 
-    [layerNameTextField setStringValue: [defaults objectForKey: "layerName"]];
-    
-    //add layer name view to alert
-    [alert addAccessoryView: layerNameView];
-    
+  //get user defaults
+  var defaults = [NSUserDefaults standardUserDefaults];
+
+  //create alert
+  var alert = Library.createAlert("Settings", "", "");
+
+  //create layer name view
+  var layerNameView = [[NSView alloc] initWithFrame: NSMakeRect(0, 0, 300, 22)];
+
+  //create layer name title
+  var layerNameTitle = Library.createLabel('Layer name:', 12, false, NSMakeRect(0, 0, 80, 20));
+  [layerNameView addSubview: layerNameTitle];
+
+  //create layer name text field
+  var layerNameTextField = [[NSTextField alloc] initWithFrame:NSMakeRect(80, 0, 200, 22)];
+  [layerNameView addSubview: layerNameTextField];
+
+  //set current layer name
+  if(![defaults objectForKey: "layerName"]) setDefaultLayerName();
+  [layerNameTextField setStringValue: [defaults objectForKey: "layerName"]];
+
+  //add layer name view to alert
+  [alert addAccessoryView: layerNameView];
+
     //add bottom buttons
-	[alert addButtonWithTitle:"Save"];
-	[alert addButtonWithTitle:"Cancel"];
-    
+  [alert addButtonWithTitle:"Save"];
+  [alert addButtonWithTitle:"Cancel"];
+
     //show settings alert
-	var responseCode = [alert runModal];
-	if(responseCode == '1000') {
-		
-		//set new search string
-		[defaults setObject: [layerNameTextField stringValue] forKey: "layerName"]];
-	}
+  var responseCode = [alert runModal];
+  if(responseCode == '1000') {
+    //set new search string
+    [defaults setObject: [layerNameTextField stringValue] forKey: "layerName"]];
+  }
 }
 
 
 function showLayers() {
-	
-	//show layers
-	findLayers().forEach(function(layer) {
-		
-		//turn visibility on
-		layer.setIsVisible(true);
-	});
+  findLayers().forEach(function(layer) {
+    layer.setIsVisible(true);
+  });
 }
 
-
 function hideLayers() {
-	
-	//hide layers
-	findLayers().forEach(function(layer) {
-		
-		//turn visibility off
-		layer.setIsVisible(false);
-	});
+  findLayers().forEach(function(layer) {
+    layer.setIsVisible(false);
+  });
 }
 
 
 function isShowing() {
-	
-	//track sum and count
-	var sum = 0;
-	var count = 0;
-	
-	//check each layer
-	findLayers().forEach(function(layer) {
-		sum += Number(layer.isVisible());
-		count++;
-	});
-	
-	//if more than half of layers are visible,
-	//consider the state as showing
-	return (sum / count > 0.5);
+  //track sum and count
+  var sum = 0;
+  var count = 0;
+
+  //check each layer
+  findLayers().forEach(function(layer) {
+    sum += Number(layer.isVisible());
+    count++;
+  });
+
+  //if more than half of layers are visible,
+  //consider the state as showing
+  return (sum / count > 0.5);
 }
 
 
 function findLayers() {
-	
-	//get current page
-	var currentPage = context.document.currentPage();
-	
-	//get user defaults
-	var defaults = [NSUserDefaults standardUserDefaults];
-	
-	//get layer name
-	if(![defaults objectForKey: "layerName"]) setDefaultLayerName(); 
-	
-	//find matching layers
-	return Library.findLayers([defaults objectForKey: "layerName"], false, false, currentPage, false, null);
+
+  var currentPage = context.document.currentPage();
+
+  var defaults = [NSUserDefaults standardUserDefaults];
+  if (![defaults objectForKey: "layerName"]) {
+		setDefaultLayerName();
+	}
+  //find matching layers
+  return Library.findLayers([defaults objectForKey: "layerName"], false, false, currentPage, false, null);
 }
 
 
 function setDefaultLayerName() {
-	
-	//get user defaults
-	var defaults = [NSUserDefaults standardUserDefaults];
-	
-	//default default layer name
-	[defaults setObject: Config.defaultLayerName forKey: "layerName"];
-	
-	//sync
-	[defaults synchronize];
+
+  var defaults = [NSUserDefaults standardUserDefaults];
+  [defaults setObject: Config.defaultLayerName forKey: "layerName"];
+  [defaults synchronize];
 }
-
-
-
