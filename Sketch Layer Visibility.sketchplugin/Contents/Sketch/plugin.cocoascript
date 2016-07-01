@@ -103,10 +103,15 @@ function findLayers() {
 
   var defaults = [NSUserDefaults standardUserDefaults];
   if (![defaults objectForKey: "layerName"]) {
-		setDefaultLayerName();
-	}
+    setDefaultLayerName();
+  }
   //find matching layers
-  return Library.findLayers([defaults objectForKey: "layerName"], false, false, currentPage, false, null);
+  var searchSetting = [defaults objectForKey: "layerName"];
+  var nameOrNames = searchSetting.split(',');
+  if (nameOrNames.length == 1) {
+    nameOrNames = searchSetting;
+  }
+  return Library.findLayers(nameOrNames, false, false, currentPage, false, null);
 }
 
 
