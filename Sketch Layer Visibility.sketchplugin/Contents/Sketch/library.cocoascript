@@ -46,7 +46,7 @@ var Library = {};
       arguments.push(type);
     }
     else {
-      formatRules.push('(className == "MSLayerGroup" OR className == "MSShapeGroup" OR className == "MSArtboardGroup" OR className == "MSTextLayer")');
+      formatRules.push('(className == "MSLayerGroup" OR className == "MSShapeGroup" OR className == "MSArtboardGroup" OR className == "MSTextLayer" OR className == "MSSymbolInstance")');
     }
 
     //layers to exclude
