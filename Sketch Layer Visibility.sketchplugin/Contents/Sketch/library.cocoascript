@@ -23,36 +23,48 @@ var Library = {};
   }
 
 
-  function findLayers(name, exactMatch, type, rootLayer, subLayersOnly, layersToExclude) {
+  function findLayers(nameOrNames, exactMatch, type, rootLayer, subLayersOnly, layersToExclude) {
 
     //create predicate format
     var formatRules = ['(name != NULL)'];
     var arguments = [];
 
     //name
-    if(name) {
+    if(Array.isArray(nameOrNames)) {
+      log(nameOrNames)
+      var nameArguments = [];
+      var nameRules = [];
+      nameOrNames.forEach(function(name) {
+        if(name.indexOf('*') === -1) {
+          nameRules.push('(name == %@)');
+        } else {
+          nameRules.push('(name like %@)');
+        }
+        nameArguments.push(name);
+      })
+      arguments = arguments.concat(nameArguments)
+      formatRules.push('(' + nameRules.join(' OR ') + ')')
+    } else {
       if(exactMatch) {
         formatRules.push('(name == %@)');
-      }
-      else {
+      } else {
         formatRules.push('(name like %@)');
       }
-      arguments.push(name);
+      // arguments.push(nameOrNames);
     }
 
     //type
-    if(type) {
+    if (type) {
       formatRules.push('(className == %@)');
-      arguments.push(type);
-    }
-    else {
+      // arguments.push(type);
+    } else {
       formatRules.push('(className == "MSLayerGroup" OR className == "MSShapeGroup" OR className == "MSArtboardGroup" OR className == "MSTextLayer" OR className == "MSSymbolInstance")');
     }
 
     //layers to exclude
-    if(layersToExclude) {
+    if (layersToExclude) {
       formatRules.push('NOT (SELF IN %@)');
-      arguments.push(layersToExclude);
+      // arguments.push(layersToExclude);
     }
 
     //prepare format string
