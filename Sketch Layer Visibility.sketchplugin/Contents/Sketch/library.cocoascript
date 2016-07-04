@@ -50,13 +50,13 @@ var Library = {};
       } else {
         formatRules.push('(name like %@)');
       }
-      // arguments.push(nameOrNames);
+      arguments.push(nameOrNames);
     }
 
     //type
     if (type) {
       formatRules.push('(className == %@)');
-      // arguments.push(type);
+      arguments.push(type);
     } else {
       formatRules.push('(className == "MSLayerGroup" OR className == "MSShapeGroup" OR className == "MSArtboardGroup" OR className == "MSTextLayer" OR className == "MSSymbolInstance")');
     }
@@ -64,7 +64,7 @@ var Library = {};
     //layers to exclude
     if (layersToExclude) {
       formatRules.push('NOT (SELF IN %@)');
-      // arguments.push(layersToExclude);
+      arguments.push(layersToExclude);
     }
 
     //prepare format string
