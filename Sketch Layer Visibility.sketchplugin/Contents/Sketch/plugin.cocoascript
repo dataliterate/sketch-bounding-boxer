@@ -99,8 +99,7 @@ function isShowing() {
 
 function findLayers() {
 
-  var currentPage = context.document.currentPage();
-
+  var pages = Library.jsArray(context.document.pages());
   var defaults = [NSUserDefaults standardUserDefaults];
   if (![defaults objectForKey: "layerName"]) {
     setDefaultLayerName();
@@ -111,7 +110,13 @@ function findLayers() {
   if (nameOrNames.length == 1) {
     nameOrNames = searchSetting;
   }
-  return Library.findLayers(nameOrNames, false, false, currentPage, false, null);
+
+  var layers = [];
+  pages.forEach(function(page) {
+    layers = layers.concat(Library.findLayers(nameOrNames, false, false, page, false, null));
+  });
+
+  return layers;
 }
 
 
