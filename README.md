@@ -1,8 +1,8 @@
-# Sketch Layer Visibility
+# Sketch Bounding Boxer
 
-![sketch-toggle-layer-visibility](https://raw.githubusercontent.com/preciousforever/sketch-toggle-layer-visibility/master/toggle-layer-visibility.gif)
+![sketch-bounding-boxer](https://raw.githubusercontent.com/preciousforever/sketch-bounding-boxer/master/toggle-layer-visibility.gif)
 
-## Why Sketch Layer Visibility
+## Why Sketch Bounding Boxer
 
 In our Sketch documents, we often use "boundingBox" layers in eg. icon layer groups to see (and use) their actual dimension and bounds. Since we don't want to see these "boundingBoxes" permanently, we created this little plugin to toggle their visibility with a keyboard shortcut (we use "cmd + l").
 
@@ -10,9 +10,9 @@ By default, the plugin toggles all layers with their name starting with "boundin
 
 ## Installation
 1. Download the ZIP file (or clone repository)
-2. Move the file ```Sketch Layer Visibility.sketchplugin``` into your Sketch Plugins folder. In Sketch 3, choose **Plugins › Reveal Plugins Folder…** to open it.
+2. Move the file ```Sketch Bounding Boxer.sketchplugin``` into your Sketch Plugins folder. In Sketch 3, choose **Plugins › Reveal Plugins Folder…** to open it.
 
-Please report bugs, observations, ideas & feature requests as [issues](https://github.com/preciousforever/sketch-layer-visibility/issues).
+Please report bugs, observations, ideas & feature requests as [issues](https://github.com/preciousforever/sketch-bounding-boxer/issues).
 
 ## Available Commands
 
