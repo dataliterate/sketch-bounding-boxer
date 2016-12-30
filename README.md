@@ -1,6 +1,5 @@
 <img src="images/sketch-bounding-boxer.png" width="418">
-
-# Sketch Bounding Boxer
+<hr />
 ![sketch-bounding-boxer-animation](images/toggle-layer-visibility.gif?raw=true)
 
 ## Why Sketch Bounding Boxer
