@@ -1,6 +1,6 @@
 # Sketch Bounding Boxer
 
-![sketch-bounding-boxer](https://raw.githubusercontent.com/preciousforever/sketch-bounding-boxer/master/toggle-layer-visibility.gif)
+![sketch-bounding-boxer](https://raw.githubusercontent.com/preciousforever/sketch-bounding-boxer/master/images/toggle-layer-visibility.gif)
 
 ## Why Sketch Bounding Boxer
 
