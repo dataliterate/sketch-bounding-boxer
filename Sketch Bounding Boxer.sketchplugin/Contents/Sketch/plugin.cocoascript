@@ -1,5 +1,5 @@
 //===============================================
-// sketch layer visibility - plugin
+// sketch bounding boxer - plugin
 //===============================================
 
 @import 'library.cocoascript';

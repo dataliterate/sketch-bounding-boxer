@@ -1,5 +1,5 @@
 //===============================================
-// sketch layer visibility  - library
+// sketch bounding boxer  - library
 //===============================================
 
 var Library = {};
