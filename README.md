@@ -1,4 +1,4 @@
-![sketch-bounding-boxer](images/sketch-bounding-boxer.png?raw=true)
+<img src="images/sketch-bounding-boxer.png" width="418">
 
 # Sketch Bounding Boxer
 ![sketch-bounding-boxer-animation](images/toggle-layer-visibility.gif?raw=true)
