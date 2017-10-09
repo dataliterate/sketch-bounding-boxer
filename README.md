@@ -1,6 +1,6 @@
 <img src="images/sketch-bounding-boxer.png" width="418" alt ="Sketch Bounding Boxer">
 <hr />
-![Sketch Bounding Boxer Animation](images/toggle-layer-visibility.gif?raw=true)
+<img src="images/toggle-layer-visibility.gif" alt="Sketch Bounding Boxer Animation" />
 
 ## Why Sketch Bounding Boxer
 In our Sketch documents, we often use "boundingBox" layers in eg. icon layer groups to see (and use) their actual dimension and bounds. Since we don't want to see these "boundingBoxes" permanently, we created this little plugin to toggle their visibility with a keyboard shortcut (we use "cmd + l").
