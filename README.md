@@ -1,4 +1,4 @@
-<img src="images/sketch-bounding-boxer.png" width="418" alt ="Sketch Bounding Boxer">
+<p align="center"><img src="images/sketch-bounding-boxer.png" width="418" alt ="Sketch Bounding Boxer"></p>
 <hr />
 
 ![Sketch Bounding Boxer Animation](images/toggle-layer-visibility.gif?raw=true)
