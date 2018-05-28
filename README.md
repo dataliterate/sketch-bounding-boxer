@@ -8,6 +8,8 @@ In our Sketch documents, we often use "boundingBox" layers in eg. icon layer gro
 
 By default, the plugin toggles all layers with their name starting with "boundingBox", so for example "boundingBox 2" will be toggled as well (this is pretty nifty if you duplicate layers and get an automatic number at the end of the name). You can easily change the affected layer name with the "Settings" command.
 
+There is similar plugin for this approach called [Show Bounding Boxes](https://github.com/pravdomil/Sketch-Show-Bounding-Boxes).
+
 ## Installation
 1. Download the ZIP file (or clone repository)
 2. Move the file ```Sketch Bounding Boxer.sketchplugin``` into your Sketch Plugins folder. In Sketch 3, choose **Plugins › Reveal Plugins Folder…** to open it.
