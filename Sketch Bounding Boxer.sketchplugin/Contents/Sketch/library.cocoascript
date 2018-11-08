@@ -55,10 +55,15 @@ var Library = {};
 
     //type
     if (type) {
-      formatRules.push('(className == %@)');
-      arguments.push(type);
+      if (type === SHAPE) {
+        formatRules.push('(className == "MSRectangleShape" OR className == "MSTriangleShape" OR className == "MSOvalShape" OR className == "MSStarShape" OR className == "MSPolygonShape" OR className == "MSShapeGroup")')
+      }
+      else {
+        formatRules.push('(className == %@)')
+      }
+      args.push(type)
     } else {
-      formatRules.push('(className == "MSLayerGroup" OR className == "MSShapeGroup" OR className == "MSArtboardGroup" OR className == "MSTextLayer" OR className == "MSSymbolInstance")');
+      formatRules.push('(className == "MSLayerGroup" OR className == "MSShapeGroup" OR className == "MSArtboardGroup" OR className == "MSTextLayer" OR className == "MSRectangleShape" OR className == "MSTriangleShape" OR className == "MSOvalShape" OR className == "MSStarShape" OR className == "MSPolygonShape")')
     }
 
     //layers to exclude
