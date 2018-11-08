@@ -5,7 +5,7 @@
     "authorEmail" : "info@precious-forever.com",
     "homepage": "https://github.com/preciousforever/sketch-bounding-boxer",
     "identifier": "com.precious-forever.sketch.boundingboxer",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "commands": [{
         "name": "Toggle",
         "identifier": "toggleLayers",
