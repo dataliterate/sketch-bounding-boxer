@@ -24,7 +24,6 @@ var Library = {};
 
 
   function findLayers(nameOrNames, exactMatch, type, rootLayer, subLayersOnly, layersToExclude) {
-    log('FIND LAYERS');
     //create predicate format
     var formatRules = ['(name != NULL)'];
     var arguments = [];
