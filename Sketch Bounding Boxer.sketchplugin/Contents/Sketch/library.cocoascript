@@ -30,7 +30,6 @@ var Library = {};
 
     //name
     if (Array.isArray(nameOrNames)) {
-      log(nameOrNames)
       var nameArguments = [];
       var nameRules = [];
       nameOrNames.forEach(function (name) {
