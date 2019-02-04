@@ -3,7 +3,7 @@
 //===============================================
 
 var Library = {};
-(function(self) {
+(function (self) {
 
   self.jsArray = jsArray;
   self.findLayers = findLayers;
@@ -17,25 +17,23 @@ var Library = {};
     var jsArray = [];
 
     while (length--) {
-        jsArray.push([array objectAtIndex: length]);
+      jsArray.push([array objectAtIndex: length]);
     }
     return jsArray;
   }
 
 
   function findLayers(nameOrNames, exactMatch, type, rootLayer, subLayersOnly, layersToExclude) {
-
     //create predicate format
     var formatRules = ['(name != NULL)'];
     var arguments = [];
 
     //name
-    if(Array.isArray(nameOrNames)) {
-      log(nameOrNames)
+    if (Array.isArray(nameOrNames)) {
       var nameArguments = [];
       var nameRules = [];
-      nameOrNames.forEach(function(name) {
-        if(name.indexOf('*') === -1) {
+      nameOrNames.forEach(function (name) {
+        if (name.indexOf('*') === -1) {
           nameRules.push('(name == %@)');
         } else {
           nameRules.push('(name like %@)');
@@ -45,7 +43,7 @@ var Library = {};
       arguments = arguments.concat(nameArguments)
       formatRules.push('(' + nameRules.join(' OR ') + ')')
     } else {
-      if(exactMatch) {
+      if (exactMatch) {
         formatRules.push('(name == %@)');
       } else {
         formatRules.push('(name like %@)');
@@ -63,7 +61,7 @@ var Library = {};
       }
       args.push(type)
     } else {
-      formatRules.push('(className == "MSLayerGroup" OR className == "MSShapeGroup" OR className == "MSArtboardGroup" OR className == "MSTextLayer" OR className == "MSRectangleShape" OR className == "MSTriangleShape" OR className == "MSOvalShape" OR className == "MSStarShape" OR className == "MSPolygonShape")')
+      formatRules.push('(className == "MSLayerGroup" OR className == "MSShapeGroup" OR className == "MSArtboardGroup" OR className == "MSTextLayer" OR className == "MSRectangleShape" OR className == "MSTriangleShape" OR className == "MSOvalShape" OR className == "MSStarShape" OR className == "MSPolygonShape" OR className == "MSSymbolInstance")')
     }
 
     //layers to exclude
@@ -86,10 +84,10 @@ var Library = {};
       layers = [rootLayer children];
     }
 
-      //perform query
+    //perform query
     var queryResult = [layers filteredArrayUsingPredicate: predicate];
 
-      //return result as js array
+    //return result as js array
     return jsArray(queryResult);
   }
 
@@ -99,7 +97,7 @@ var Library = {};
     [alert setMessageText: title];
     [alert setInformativeText: message];
 
-    if(iconFileName) {
+    if (iconFileName) {
       //get icon path
       var scriptPath = [NSString stringWithString: context.scriptPath];
       scriptPath = [scriptPath stringByDeletingLastPathComponent];
@@ -116,17 +114,17 @@ var Library = {};
 
   function createLabel(text, fontSize, bold, frame) {
 
-    var label = [[NSTextField alloc] initWithFrame:frame];
-    [label setStringValue:text];
+    var label = [[NSTextField alloc] initWithFrame: frame];
+    [label setStringValue: text];
     if (bold) {
-      [label setFont:[NSFont boldSystemFontOfSize:fontSize]];
+      [label setFont: [NSFont boldSystemFontOfSize: fontSize]];
     } else {
-      [label setFont:[NSFont systemFontOfSize:fontSize]];
+      [label setFont: [NSFont systemFontOfSize: fontSize]];
     }
-    [label setBezeled:false];
-    [label setDrawsBackground:false];
-    [label setEditable:false];
-    [label setSelectable:false];
+    [label setBezeled: false];
+    [label setDrawsBackground: false];
+    [label setEditable: false];
+    [label setSelectable: false];
 
     return label;
   }
