@@ -1,4 +1,4 @@
-<img src="images/sketch-bounding-boxer.png" width="418" alt ="Sketch Bounding Boxer">
+<p align="center"><img src="images/sketch-bounding-boxer.png" width="418" alt ="Sketch Bounding Boxer"></p>
 <hr />
 
 ![Sketch Bounding Boxer Animation](images/toggle-layer-visibility.gif?raw=true)
@@ -7,6 +7,8 @@
 In our Sketch documents, we often use "boundingBox" layers in eg. icon layer groups to see (and use) their actual dimension and bounds. Since we don't want to see these "boundingBoxes" permanently, we created this little plugin to toggle their visibility with a keyboard shortcut (we use "cmd + l").
 
 By default, the plugin toggles all layers with their name starting with "boundingBox", so for example "boundingBox 2" will be toggled as well (this is pretty nifty if you duplicate layers and get an automatic number at the end of the name). You can easily change the affected layer name with the "Settings" command.
+
+There is similar plugin for this approach called [Show Bounding Boxes](https://github.com/pravdomil/Sketch-Show-Bounding-Boxes).
 
 ## Installation
 1. Download the ZIP file (or clone repository)
